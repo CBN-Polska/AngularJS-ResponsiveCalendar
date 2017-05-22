@@ -30,7 +30,7 @@
                         -
                         {{event.endTime|date: 'HH:mm'}}
                     </td>
-                    <td ng-if="event.allDay" class="monthview-eventdetail-timecolumn">{{allDayLabel}}</td>
+                    <td ng-if="event.allDay" class="monthview-eventdetail-timecolumn">{{event.allDayLabel || allDayLabel}}</td>
                     <td class="event-detail" ng-click="eventSelected({event:event})">{{event.title}}</td>
                 </tr>
                 <tr ng-if="!selectedDate.events"><td class="no-event-label">{{noEventsLabel}}</td></tr>
