@@ -1145,7 +1145,7 @@ angular.module("template/rcalendar/month.html", []).run(["$templateCache", funct
     "        </tbody>\n" +
     "    </table>\n" +
     "    <div ng-if=\"showEventDetail\" class=\"event-detail-container\">\n" +
-    "        <div class=\"scrollable\" style=\"height: 200px\">\n" +
+    "        <div class=\"scrollable\" >\n" +
     "            <table class=\"table table-bordered table-striped table-fixed\">\n" +
     "                <tr ng-repeat=\"event in selectedDate.events\" ng-if=\"selectedDate.events\">\n" +
     "                    <td ng-if=\"!event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{event.startTime|date: 'HH:mm'}}\n" +
@@ -1153,7 +1153,8 @@ angular.module("template/rcalendar/month.html", []).run(["$templateCache", funct
     "                        {{event.endTime|date: 'HH:mm'}}\n" +
     "                    </td>\n" +
     "                    <td ng-if=\"event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{event.allDayLabel || allDayLabel}}</td>\n" +
-    "                    <td class=\"event-detail\" ng-click=\"eventSelected({event:event})\">{{event.title}}</td>\n" +
+    "                    <td ng-if=\"angular.isDefined(event.titleHtml)\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\" ng-bind-html=\"event.titleHtml\"></td>\n" +
+    "                    <td ng-if=\"!angular.isDefined(event.titleHtml)\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\">{{event.title}}</td>\n" +
     "                </tr>\n" +
     "                <tr ng-if=\"!selectedDate.events\"><td class=\"no-event-label\">{{noEventsLabel}}</td></tr>\n" +
     "            </table>\n" +
