@@ -1153,8 +1153,8 @@ angular.module("template/rcalendar/month.html", []).run(["$templateCache", funct
     "                        {{event.endTime|date: 'HH:mm'}}\n" +
     "                    </td>\n" +
     "                    <td ng-if=\"event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{event.allDayLabel || allDayLabel}}</td>\n" +
-    "                    <td ng-if=\"angular.isDefined(event.titleHtml)\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\" ng-bind-html=\"event.titleHtml\"></td>\n" +
-    "                    <td ng-if=\"!angular.isDefined(event.titleHtml)\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\">{{event.title}}</td>\n" +
+    "                    <td ng-if=\"event.titleHtml\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\" ng-bind-html=\"event.titleHtml\"></td>\n" +
+    "                    <td ng-if=\"!event.titleHtml\" class=\"event-detail\" ng-click=\"eventSelected({event:event})\">{{event.title}}</td>\n" +
     "                </tr>\n" +
     "                <tr ng-if=\"!selectedDate.events\"><td class=\"no-event-label\">{{noEventsLabel}}</td></tr>\n" +
     "            </table>\n" +
